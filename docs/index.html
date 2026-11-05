@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birb</title>
+<meta name="description" content="A small, quiet text editor with tabs, find and replace, and a CSV table view that saves your file back exactly as it found it.">
+<meta name="theme-color" content="#161914">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Birb">
+<meta property="og:description" content="A small, quiet text editor with a CSV table view. Windows, macOS and Linux.">
+<meta property="og:image" content="https://YOURUSER.github.io/birb/og.png">
+<meta property="og:url" content="https://YOURUSER.github.io/birb/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  --bg: #161914; --text: #e0e4d6; --muted: #8b9480; --line: #2b3126; --moss: #a3b18a; --accent: #e0b46c;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "DejaVu Serif", serif;
+  --mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, Menlo, "DejaVu Sans Mono", monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: #eceee3; --text: #23281d; --muted: #666f59; --line: #d3d8c5; --moss: #5a6f45; --accent: #8f5f1a; }
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--bg); color: var(--text); font: 19px/1.7 var(--serif); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+.col { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+.wide { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+header { display: flex; justify-content: space-between; align-items: baseline; padding: 40px 0 0; font-size: 16px; color: var(--muted); }
+.mark { font-size: 26px; font-weight: 300; letter-spacing: -.03em; color: var(--moss); text-decoration: none; }
+.mark:hover { color: var(--moss); }
+header a:not(.mark) { color: var(--muted); }
+
+h1 { margin-top: 110px; font-size: clamp(34px, 6vw, 46px); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; }
+.intro { margin-top: 22px; color: var(--muted); }
+.get { margin-top: 34px; font-size: 18px; }
+.get a:first-child { color: var(--accent); text-decoration-color: var(--accent); }
+.get span { color: var(--muted); margin: 0 10px; }
+.ver { margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+figure { margin: 84px auto 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+
+h2 { margin: 90px 0 14px; font: 500 12px/1 var(--serif); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+p + p { margin-top: 1em; }
+code { font: .8em var(--mono); color: var(--moss); }
+pre { margin-top: 20px; font: 14.5px/1.9 var(--mono); color: var(--text); overflow-x: auto; }
+pre i { font-style: normal; color: var(--muted); }
+
+dl { margin-top: 6px; }
+dl > div { display: flex; gap: 24px; padding: 14px 0; border-top: 1px solid var(--line); }
+dl > div:last-child { border-bottom: 1px solid var(--line); }
+dt { width: 110px; flex: none; color: var(--muted); }
+dd a { margin-right: 22px; white-space: nowrap; }
+.small { margin-top: 18px; font-size: 15px; color: var(--muted); }
+
+footer { margin-top: 110px; padding-bottom: 56px; font-size: 14px; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 560px) { body { font-size: 18px; } h1 { margin-top: 72px; } dl > div { flex-direction: column; gap: 2px; } dt { width: auto; } }
+</style>
+</head>
+<body>
+
+<div class="col">
+  <header>
+    <a class="mark" href="#">birb.</a>
+    <a href="https://github.com/YOURUSER/birb">GitHub</a>
+  </header>
+
+  <h1>A small, quiet text editor.</h1>
+  <p class="intro">Tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them. For Windows, macOS and Linux. Free, offline, and there is a small parrot.</p>
+  <p class="get"><a id="dl-main" href="https://github.com/YOURUSER/birb/releases/latest">Download</a><span>/</span><a href="#download">Other systems</a></p>
+  <p class="ver" id="ver"></p>
+</div>
+
+<div class="wide">
+  <figure>
+    <picture>
+      <source srcset="shot-table-light.png" media="(prefers-color-scheme: light)">
+      <img src="shot-table-dark.png" width="1280" height="800" alt="Birb with a semicolon-separated CSV file open as a table.">
+    </picture>
+  </figure>
+</div>
+
+<div class="col">
+  <h2>Tables</h2>
+  <p>Open a <code>.csv</code> or <code>.tsv</code> and edit it as a grid. Commas, semicolons, tabs and pipes are detected for you, and the file is written back with the same delimiter and line endings. Sort a column, add or remove rows and columns, turn the header row on or off, and undo.</p>
+
+  <h2>Tabs</h2>
+  <p>Every tab is saved as you type. Close Birb, open it tomorrow, and everything is where you left it. Dark and light themes, line numbers, word wrap and a zen mode are there when you want them.</p>
+
+  <h2>Command line</h2>
+  <pre><i># open files; new names are created on first save</i>
+birb notes.txt data.csv
+
+<i># or pipe something in</i>
+git log --oneline | birb -</pre>
+  <p class="small">Piping uses a small npm launcher. The README explains how to get it.</p>
+
+  <h2 id="download">Download</h2>
+  <dl>
+    <div><dt>macOS</dt><dd><a data-asset="mac-arm64" href="https://github.com/YOURUSER/birb/releases/latest">Apple Silicon</a><a data-asset="mac-x64" href="https://github.com/YOURUSER/birb/releases/latest">Intel</a></dd></div>
+    <div><dt>Windows</dt><dd><a data-asset="win-setup" href="https://github.com/YOURUSER/birb/releases/latest">Installer</a><a data-asset="win-portable" href="https://github.com/YOURUSER/birb/releases/latest">Portable</a></dd></div>
+    <div><dt>Linux</dt><dd><a data-asset="linux-appimage" href="https://github.com/YOURUSER/birb/releases/latest">AppImage</a><a data-asset="linux-deb" href="https://github.com/YOURUSER/birb/releases/latest">.deb</a></dd></div>
+  </dl>
+  <p class="small">Birb is not code-signed yet, so your system may ask you to confirm the first launch. The README shows how.</p>
+
+  <footer>
+    <span>J. 2026. MIT licence.</span>
+    <span><a href="https://github.com/YOURUSER/birb">Source</a> &nbsp; <a href="https://github.com/YOURUSER/birb/issues">Issues</a></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const REPO = 'YOURUSER/birb';
+  const ua = navigator.userAgent || '';
+  const os = /Windows/i.test(ua) ? 'win' : /Mac/i.test(ua) && !/iPhone|iPad/i.test(ua) ? 'mac' : /Linux|X11/i.test(ua) && !/Android/i.test(ua) ? 'linux' : '';
+  const name = { win: 'Windows', mac: 'macOS', linux: 'Linux' };
+  const main = document.getElementById('dl-main');
+  if (os) main.textContent = 'Download for ' + name[os];
+  // the plain "latest release" links are the fallback; this swaps in the real files when the API answers
+  fetch('https://api.github.com/repos/' + REPO + '/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
+    .then(r => r.ok ? r.json() : null)
+    .then(rel => {
+      if (!rel || !rel.assets) return;
+      const find = re => (rel.assets.find(a => re.test(a.name)) || {}).browser_download_url;
+      const map = {
+        'mac-arm64': find(/mac-arm64\.dmg$/i), 'mac-x64': find(/mac-x64\.dmg$/i),
+        'win-setup': find(/Setup.*\.exe$/i), 'win-portable': find(/Portable.*\.exe$/i),
+        'linux-appimage': find(/\.AppImage$/i), 'linux-deb': find(/\.deb$/i)
+      };
+      document.querySelectorAll('a[data-asset]').forEach(a => { const u = map[a.dataset.asset]; if (u) a.href = u; });
+      const primary = { win: 'win-setup', mac: 'mac-arm64', linux: 'linux-appimage' }[os];
+      if (primary && map[primary]) main.href = map[primary];
+      const v = (rel.tag_name || '').replace(/^v/, '');
+      if (v) document.getElementById('ver').textContent = 'Version ' + v + (os === 'mac' ? ', Apple Silicon. Intel Macs: see below.' : '');
+    })
+    .catch(() => {});
+})();
+</script>
+</body>
+</html>
