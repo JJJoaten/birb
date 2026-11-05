@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Birb</title>
-<meta name="description" content="A small, quiet text editor with tabs, find and replace, and a CSV table view that saves your file back exactly as it found it.">
-<meta name="theme-color" content="#161914">
+<meta name="description" content="A small, quiet text editor for Windows, macOS and Linux. Tabs, find and replace, and a CSV table view that saves your file back exactly as it found it.">
+<meta name="theme-color" content="#1b1a16">
 <link rel="icon" type="image/png" href="favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Birb">
@@ -15,12 +15,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <style>
 :root {
-  --bg: #161914; --text: #e0e4d6; --muted: #8b9480; --line: #2b3126; --moss: #a3b18a; --accent: #e0b46c;
+  --bg: #1b1a16; --text: #e8e2d0; --muted: #8e8873; --line: #35322a; --moss: #aeb98f; --accent: #df8a62;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "DejaVu Serif", serif;
   --mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, Menlo, "DejaVu Sans Mono", monospace;
 }
 @media (prefers-color-scheme: light) {
-  :root { --bg: #eceee3; --text: #23281d; --muted: #666f59; --line: #d3d8c5; --moss: #5a6f45; --accent: #8f5f1a; }
+  :root { --bg: #f4f0e5; --text: #26241d; --muted: #7d7763; --line: #d9d2be; --moss: #586c42; --accent: #a3391f; }
 }
 * { box-sizing: border-box; margin: 0; }
 body { background: var(--bg); color: var(--text); font: 19px/1.7 var(--serif); -webkit-font-smoothing: antialiased; }
@@ -70,8 +70,8 @@ footer { margin-top: 110px; padding-bottom: 56px; font-size: 14px; color: var(--
     <a href="https://github.com/JJJoaten/birb">GitHub</a>
   </header>
 
-  <h1>A small, quiet text editor.</h1>
-  <p class="intro">Tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them. For Windows, macOS and Linux. Free, offline, and there is a small parrot.</p>
+  <h1>My small, quiet text editor.</h1>
+  <p class="intro">I built Birb because I was fed up opening CSVs in a text editor and breaking the formatting. It turned into a proper little editor for Windows, macOS and Linux, with handy bits for daily use — tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them. Free, offline, and there is a small parrot.</p>
   <p class="get"><a href="app.html" style="background: var(--accent); color: var(--bg); padding: 6px 20px; border-radius: 5px; text-decoration: none; font-weight: 500;">Launch Birb</a><span>/</span><a href="#download">Download</a></p>
   <p class="ver">Runs in your browser. No install needed.</p>
 </div>
@@ -87,10 +87,10 @@ footer { margin-top: 110px; padding-bottom: 56px; font-size: 14px; color: var(--
 
 <div class="col">
   <h2>Tables</h2>
-  <p>Open a <code>.csv</code> or <code>.tsv</code> and edit it as a grid. Commas, semicolons, tabs and pipes are detected for you, and the file is written back with the same delimiter and line endings. Sort a column, add or remove rows and columns, turn the header row on or off, and undo.</p>
+  <p>This is the bit that started it all. Open a <code>.csv</code> or <code>.tsv</code> and it turns into a proper grid — no more squinting at commas. Commas, semicolons, tabs and pipes are all detected for you, and when you save, everything goes back exactly as it was. Sort columns, add or remove rows and columns, toggle the header, undo — the usual stuff, done simply.</p>
 
   <h2>Tabs</h2>
-  <p>Every tab is saved as you type. Close Birb, open it tomorrow, and everything is where you left it. Dark and light themes, line numbers, word wrap and a zen mode are there when you want them.</p>
+  <p>Everything is saved as you type. Close Birb, come back tomorrow, and all your tabs are right where you left them. There are dark and light themes, line numbers, word wrap and a zen mode for when you want to focus.</p>
 
   <h2>Command line</h2>
   <pre><i># open files; new names are created on first save</i>
@@ -100,11 +100,11 @@ birb notes.txt data.csv
 git log --oneline | birb -</pre>
   <p class="small">Piping uses a small npm launcher. The README explains how to get it.</p>
 
-  <h2 id="download">Install</h2>
-  <p>The easiest way to use Birb is to <a href="app.html">open it in your browser</a>. In Chrome or Edge, click the install icon in the address bar to add it to your desktop. It gets its own window, its own icon, and works offline.</p>
+  <h2 id="download">Get it</h2>
+  <p>The quickest way is to just <a href="app.html">open Birb in your browser</a> — it works straight away, nothing to install. If you'd like it on your desktop, click the install icon in Chrome or Edge's address bar. You get your own window, your own icon, and it works offline too.</p>
 
   <h2>Desktop app</h2>
-  <p class="small">Native installers are also available. These can open local files and accept piped input from the command line.</p>
+  <p class="small">If you prefer a proper native app (handy for opening local files or piping from the command line), grab an installer:</p>
   <dl>
     <div><dt>macOS</dt><dd><a data-asset="mac-arm64" href="https://github.com/JJJoaten/birb/releases/latest">Apple Silicon</a><a data-asset="mac-x64" href="https://github.com/JJJoaten/birb/releases/latest">Intel</a></dd></div>
     <div><dt>Windows</dt><dd><a data-asset="win-setup" href="https://github.com/JJJoaten/birb/releases/latest">Installer</a><a data-asset="win-portable" href="https://github.com/JJJoaten/birb/releases/latest">Portable</a></dd></div>
