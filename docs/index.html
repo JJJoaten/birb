@@ -72,8 +72,8 @@ footer { margin-top: 110px; padding-bottom: 56px; font-size: 14px; color: var(--
 
   <h1>A small, quiet text editor.</h1>
   <p class="intro">Tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them. For Windows, macOS and Linux. Free, offline, and there is a small parrot.</p>
-  <p class="get"><a id="dl-main" href="https://github.com/JJJoaten/birb/releases/latest">Download</a><span>/</span><a href="#download">Other systems</a></p>
-  <p class="ver" id="ver"></p>
+  <p class="get"><a href="app.html" style="background: var(--accent); color: var(--bg); padding: 6px 20px; border-radius: 5px; text-decoration: none; font-weight: 500;">Launch Birb</a><span>/</span><a href="#download">Download</a></p>
+  <p class="ver">Runs in your browser. No install needed.</p>
 </div>
 
 <div class="wide">
@@ -100,13 +100,20 @@ birb notes.txt data.csv
 git log --oneline | birb -</pre>
   <p class="small">Piping uses a small npm launcher. The README explains how to get it.</p>
 
-  <h2 id="download">Download</h2>
+  <h2 id="download">Install</h2>
+  <p>The easiest way to use Birb is to <a href="app.html">open it in your browser</a>. In Chrome or Edge, click the install icon in the address bar to add it to your desktop. It gets its own window, its own icon, and works offline.</p>
+
+  <h2>Desktop app</h2>
+  <p class="small">Native installers are also available. These can open local files and accept piped input from the command line.</p>
   <dl>
     <div><dt>macOS</dt><dd><a data-asset="mac-arm64" href="https://github.com/JJJoaten/birb/releases/latest">Apple Silicon</a><a data-asset="mac-x64" href="https://github.com/JJJoaten/birb/releases/latest">Intel</a></dd></div>
     <div><dt>Windows</dt><dd><a data-asset="win-setup" href="https://github.com/JJJoaten/birb/releases/latest">Installer</a><a data-asset="win-portable" href="https://github.com/JJJoaten/birb/releases/latest">Portable</a></dd></div>
     <div><dt>Linux</dt><dd><a data-asset="linux-appimage" href="https://github.com/JJJoaten/birb/releases/latest">AppImage</a><a data-asset="linux-deb" href="https://github.com/JJJoaten/birb/releases/latest">.deb</a></dd></div>
   </dl>
-  <p class="small">Birb is not code-signed yet, so your system may ask you to confirm the first launch. The README shows how.</p>
+  <p class="small">The desktop app is not code-signed yet, so your system may ask you to confirm the first launch.<br>
+  <strong>Windows:</strong> right-click the <code>.exe</code>, choose Properties, tick <em>Unblock</em> at the bottom and click OK. Then run it again.<br>
+  <strong>macOS:</strong> right-click Birb in Applications, choose Open, then Open again.<br>
+  <strong>Linux:</strong> make the AppImage executable with <code>chmod +x</code>.</p>
 
   <footer>
     <span>J. 2026. MIT licence.</span>
@@ -117,12 +124,6 @@ git log --oneline | birb -</pre>
 <script>
 (() => {
   const REPO = 'JJJoaten/birb';
-  const ua = navigator.userAgent || '';
-  const os = /Windows/i.test(ua) ? 'win' : /Mac/i.test(ua) && !/iPhone|iPad/i.test(ua) ? 'mac' : /Linux|X11/i.test(ua) && !/Android/i.test(ua) ? 'linux' : '';
-  const name = { win: 'Windows', mac: 'macOS', linux: 'Linux' };
-  const main = document.getElementById('dl-main');
-  if (os) main.textContent = 'Download for ' + name[os];
-  // the plain "latest release" links are the fallback; this swaps in the real files when the API answers
   fetch('https://api.github.com/repos/' + REPO + '/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
     .then(r => r.ok ? r.json() : null)
     .then(rel => {
@@ -134,10 +135,6 @@ git log --oneline | birb -</pre>
         'linux-appimage': find(/\.AppImage$/i), 'linux-deb': find(/\.deb$/i)
       };
       document.querySelectorAll('a[data-asset]').forEach(a => { const u = map[a.dataset.asset]; if (u) a.href = u; });
-      const primary = { win: 'win-setup', mac: 'mac-arm64', linux: 'linux-appimage' }[os];
-      if (primary && map[primary]) main.href = map[primary];
-      const v = (rel.tag_name || '').replace(/^v/, '');
-      if (v) document.getElementById('ver').textContent = 'Version ' + v + (os === 'mac' ? ', Apple Silicon. Intel Macs: see below.' : '');
     })
     .catch(() => {});
 })();
