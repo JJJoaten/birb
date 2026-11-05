@@ -1,4 +1,4 @@
-# birb.
+# Meet birb.
 
 A small, quiet text editor for Windows, macOS and Linux. Tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them.
 
