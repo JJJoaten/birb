@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const isMac = process.platform === 'darwin';
-const REPO_URL = 'https://github.com/YOURUSER/birb';
+const REPO_URL = 'https://github.com/JJJoaten/birb';
 const TEXT_EXT = ['txt', 'md', 'markdown', 'log', 'csv', 'tsv', 'json', 'xml', 'yml', 'yaml', 'ini', 'conf', 'cfg',
   'html', 'css', 'js', 'ts', 'ps1', 'bat', 'cmd', 'sh', 'py'];
 

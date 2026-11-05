@@ -6,7 +6,7 @@ birb is my small, quiet text editor for Windows, macOS and Linux. This started a
 
 ## Download
 
-Get the file for your system from the [latest release](https://github.com/YOURUSER/birb/releases/latest).
+Get the file for your system from the [latest release](https://github.com/JJJoaten/birb/releases/latest).
 
 | | |
 | --- | --- |
@@ -53,7 +53,7 @@ There are two ways to get the command.
 The launcher is a small Node script (`bin/birb.js`) that finds your installed Birb. It supports everything above, including piping.
 
 ```sh
-npm install -g github:YOURUSER/birb
+npm install -g github:JJJoaten/birb
 ```
 
 From a checkout of this repository, `npm install && npm link` does the same. To point it at a particular copy of the app, set `BIRB_APP` to the full path of the executable.
@@ -69,7 +69,7 @@ The app can also be called directly, which opens files but cannot read a pipe:
 Requires [Node.js](https://nodejs.org) 20 or newer.
 
 ```sh
-git clone https://github.com/YOURUSER/birb.git
+git clone https://github.com/JJJoaten/birb.git
 cd birb
 npm install
 npm start          # run it

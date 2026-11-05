@@ -4,15 +4,15 @@
   "version": "1.0.0",
   "description": "A small, quiet text editor with tabs and a CSV table view that keeps your formatting.",
   "main": "main.js",
-  "homepage": "https://YOURUSER.github.io/birb",
+  "homepage": "https://JJJoaten.github.io/birb",
   "license": "MIT",
   "author": {
     "name": "J",
-    "email": "YOURUSER@users.noreply.github.com"
+    "email": "JJJoaten@users.noreply.github.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOURUSER/birb.git"
+    "url": "git+https://github.com/JJJoaten/birb.git"
   },
   "bin": {
     "birb": "bin/birb.js"
@@ -131,7 +131,7 @@
       "icon": "build/icon.png",
       "category": "Utility;TextEditor",
       "executableName": "birb",
-      "maintainer": "J <YOURUSER@users.noreply.github.com>",
+      "maintainer": "J <JJJoaten@users.noreply.github.com>",
       "synopsis": "A small, quiet text editor",
       "artifactName": "Birb-${version}-linux-${arch}.${ext}",
       "mimeTypes": [
