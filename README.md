@@ -1,6 +1,6 @@
 # Meet birb.
 
-A small, quiet text editor for Windows, macOS and Linux. Tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them.
+birb is my small, quiet text editor for Windows, macOS and Linux. This started as I was fed up of using a text editor to inspect CSVs and was breaking the formatting. birb includes handy features for daily use such as tabs, find and replace, and a table view for CSV files that saves them back exactly as it found them.
 
 ![Birb with a CSV file open as a table](docs/shot-table-dark.png)
 
